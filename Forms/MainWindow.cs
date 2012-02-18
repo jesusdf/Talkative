@@ -39,11 +39,6 @@ public partial class MainWindow: Gtk.Window
 		
 	}
 	
-	public string AppName()
-	{
-		return this.GetType().Assembly.GetName().Name + " v." + this.GetType().Assembly.GetName().Version.ToString ();
-	}
-	
 	protected void OnCmdSendClicked (object sender, System.EventArgs e)
 	{
 		OnUnreadMessages (this);

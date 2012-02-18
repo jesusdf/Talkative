@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Gtk;
 
 namespace Talkative
 {
@@ -17,6 +18,7 @@ namespace Talkative
         private Connection _conn;
         private string _name;
 		private UserList _userList;
+		private Notebook _tabUsers;
 
         #endregion
 
@@ -33,9 +35,16 @@ namespace Talkative
 
         }
 
-        ~Talk() {
+        ~Talk ()
+		{
             
-        }
-
+		}
+		
+		public void SetInterfaceObjects (Notebook nb)
+		{
+			_tabUsers = nb;
+		}
+		
+		
     }
 }

@@ -19,8 +19,8 @@ namespace Talkative
 			Application.Init ();
 			
 			_win = new MainWindow ();
-			_win.Title = _win.AppName ();
-			_win.Icon = new Image (System.Reflection.Assembly.GetExecutingAssembly ().GetManifestResourceStream ("Talkative.Resources.normal.png")).Pixbuf;
+			_win.Title = AppName ();
+			_win.Icon = new Image (Me ().GetManifestResourceStream ("Talkative.Resources.normal.png")).Pixbuf;
 			_win.Visible = false;
 			
 			_trayIcon = new StatusIcon (_win.Icon);
@@ -57,6 +57,7 @@ namespace Talkative
 			menuItemExit.Image = quitImg;
 			popupMenu.Add (menuItemExit);
 			menuItemExit.Activated += delegate {
+				_trayIcon.Dispose ();
 				Application.Quit ();
 			};
 			
@@ -71,14 +72,25 @@ namespace Talkative
 		private static void StatusIconState (bool windowOpen, bool unreadMessages)
 		{
 			if (windowOpen) {
-				_trayIcon.Pixbuf = new Image (System.Reflection.Assembly.GetExecutingAssembly ().GetManifestResourceStream ("Talkative.Resources.open.png")).Pixbuf;
+				_trayIcon.Pixbuf = new Image (Me().GetManifestResourceStream ("Talkative.Resources.open.png")).Pixbuf;
 			} else {
 				if (unreadMessages) {
-					_trayIcon.Pixbuf = new Image (System.Reflection.Assembly.GetExecutingAssembly ().GetManifestResourceStream ("Talkative.Resources.new.png")).Pixbuf;
+					_trayIcon.Pixbuf = new Image (Me ().GetManifestResourceStream ("Talkative.Resources.new.png")).Pixbuf;
 				} else {
-					_trayIcon.Pixbuf = new Image (System.Reflection.Assembly.GetExecutingAssembly ().GetManifestResourceStream ("Talkative.Resources.normal.png")).Pixbuf;
+					_trayIcon.Pixbuf = new Image (Me ().GetManifestResourceStream ("Talkative.Resources.normal.png")).Pixbuf;
 				}
 			}
+		}
+		
+		public static string AppName ()
+		{
+			
+			return Me ().GetName ().Name + " v." + Me ().GetName ().Version.ToString ();
+		}
+		
+		public static System.Reflection.Assembly Me ()
+		{
+			return System.Reflection.Assembly.GetExecutingAssembly ();
 		}
 		
 	}
