@@ -12,7 +12,6 @@
     <property name="MemberName" />
     <property name="Visible">False</property>
     <property name="Title" translatable="yes">Talkative#</property>
-    <property name="Icon">stock:stock_book_blue LargeToolbar</property>
     <signal name="DeleteEvent" handler="OnDeleteEvent" />
     <child>
       <widget class="Gtk.VBox" id="vbox1">

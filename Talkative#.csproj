@@ -62,6 +62,9 @@
     <EmbeddedResource Include="gtk-gui\gui.stetic">
       <LogicalName>gui.stetic</LogicalName>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\normal.png" />
+    <EmbeddedResource Include="Resources\open.png" />
+    <EmbeddedResource Include="Resources\new.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="gtk-gui\generated.cs" />

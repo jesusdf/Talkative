@@ -5,6 +5,7 @@
 
 using System;
 using Gtk;
+using Talkative;
 
 public partial class MainWindow: Gtk.Window
 {	

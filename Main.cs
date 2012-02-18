@@ -20,6 +20,7 @@ namespace Talkative
 			
 			_win = new MainWindow ();
 			_win.Title = _win.AppName ();
+			_win.Icon = new Image (System.Reflection.Assembly.GetExecutingAssembly ().GetManifestResourceStream ("Talkative.Resources.normal.png")).Pixbuf;
 			_win.Visible = false;
 			
 			_trayIcon = new StatusIcon (_win.Icon);
@@ -67,21 +68,15 @@ namespace Talkative
 		/// <summary>
 		/// Function to change the Tray Icon based on the state of the window and if there are unread messages.
 		/// </summary>
-		private static void StatusIconState(bool windowOpen, bool unreadMessages)
+		private static void StatusIconState (bool windowOpen, bool unreadMessages)
 		{
-			if(windowOpen)
-			{
-				_trayIcon.Pixbuf = global::Stetic.IconLoader.LoadIcon(_win, "stock_book_open", global::Gtk.IconSize.LargeToolbar);
-			}
-			else
-			{
-				if (unreadMessages)
-				{
-					_trayIcon.Pixbuf = global::Stetic.IconLoader.LoadIcon(_win, "stock_book_green", global::Gtk.IconSize.LargeToolbar);
-				}
-				else
-				{
-					_trayIcon.Pixbuf = global::Stetic.IconLoader.LoadIcon(_win, "stock_book_blue", global::Gtk.IconSize.LargeToolbar);
+			if (windowOpen) {
+				_trayIcon.Pixbuf = new Image (System.Reflection.Assembly.GetExecutingAssembly ().GetManifestResourceStream ("Talkative.Resources.open.png")).Pixbuf;
+			} else {
+				if (unreadMessages) {
+					_trayIcon.Pixbuf = new Image (System.Reflection.Assembly.GetExecutingAssembly ().GetManifestResourceStream ("Talkative.Resources.new.png")).Pixbuf;
+				} else {
+					_trayIcon.Pixbuf = new Image (System.Reflection.Assembly.GetExecutingAssembly ().GetManifestResourceStream ("Talkative.Resources.normal.png")).Pixbuf;
 				}
 			}
 		}

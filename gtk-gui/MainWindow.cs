@@ -18,7 +18,6 @@ public partial class MainWindow
 		// Widget MainWindow
 		this.Name = "MainWindow";
 		this.Title = global::Mono.Unix.Catalog.GetString ("Talkative#");
-		this.Icon = global::Stetic.IconLoader.LoadIcon (this, "stock_book_blue", global::Gtk.IconSize.LargeToolbar);
 		// Container child MainWindow.Gtk.Container+ContainerChild
 		this.vbox1 = new global::Gtk.VBox ();
 		this.vbox1.Name = "vbox1";
