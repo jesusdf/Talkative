@@ -14,11 +14,23 @@ namespace Talkative
 			
 		}
 		
+		/// <summary>
+		/// Encrypts a message.
+		/// </summary>
+		/// <remarks>
+		/// Still in development.
+		/// </remarks>
 		public string Encrypt (string data)
 		{
 			return data;
 		}
 		
+		/// <summary>
+		/// Decrypts a message.
+		/// </summary>
+		/// <remarks>
+		/// Still in development.
+		/// </remarks>
 		public string Decrypt (string encrypted)
 		{
 			return encrypted;

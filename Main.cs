@@ -45,21 +45,28 @@ namespace Talkative
 			
 		}
 		
-		private static void OnTrayIconPopup (object o, EventArgs args) {
-			Menu popupMenu = new Menu();
-			ImageMenuItem menuItemExit = new ImageMenuItem("Exit");
-			Gtk.Image quitImg = new Gtk.Image(Stock.Quit, IconSize.Menu);
+		/// <summary>
+		/// Event to handle the Tray Icon Popup Menu.
+		/// </summary>
+		private static void OnTrayIconPopup (object o, EventArgs args)
+		{
+			Menu popupMenu = new Menu ();
+			ImageMenuItem menuItemExit = new ImageMenuItem ("Exit");
+			Gtk.Image quitImg = new Gtk.Image (Stock.Quit, IconSize.Menu);
 			menuItemExit.Image = quitImg;
-			popupMenu.Add(menuItemExit);
+			popupMenu.Add (menuItemExit);
 			menuItemExit.Activated += delegate {
-				Application.Quit();
+				Application.Quit ();
 			};
 			
-			popupMenu.ShowAll();
-			popupMenu.Popup();
+			popupMenu.ShowAll ();
+			popupMenu.Popup ();
 			
 		}
 		
+		/// <summary>
+		/// Function to change the Tray Icon based on the state of the window and if there are unread messages.
+		/// </summary>
 		private static void StatusIconState(bool windowOpen, bool unreadMessages)
 		{
 			if(windowOpen)

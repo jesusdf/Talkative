@@ -14,6 +14,9 @@ namespace Talkative
 		
 		#region Enumerations
 		
+		/// <summary>
+		/// Indicates the type of message.
+		/// </summary>
 		public enum MessageTypes
 		{
 			Ping = 0,

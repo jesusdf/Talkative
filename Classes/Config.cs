@@ -23,7 +23,7 @@ namespace Talkative
 		/// Returns an array of users.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// This array uses a User class to access all user's information
 		/// </remarks>      
 		
         public List<User> GetUserList ()

@@ -20,15 +20,15 @@ namespace Talkative
 
         #endregion
 
-        public Talk()
-        {
+        public Talk ()
+		{
 			
-            _conn = new Connection();
-			_userList = new UserList(_conn);
+			_conn = new Connection ();
+			_userList = new UserList (_conn);
 			
-            _name = Config.MyName();
-            _userList.ReloadUserList();
-            
+			_name = Config.MyName ();
+			_userList.ReloadUserList ();
+			
             _conn.Listen(69);
 
         }

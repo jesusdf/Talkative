@@ -20,36 +20,53 @@ namespace Talkative
             
         }
         
-        ~Connection()
-        {
+        ~Connection ()
+		{
 
-        }
+		}
 		
-		public static string MyIP() {
+		/// <summary>
+		/// Returns the host's IP.
+		/// </summary>
+		/// <remarks>
+		/// It looks for the first Adapter that has an internal network IP.
+		/// </remarks>
+		public static string MyIP ()
+		{
             
 			IPHostEntry host;
 			string localIP = "?";
 			
-			host = Dns.GetHostEntry(Dns.GetHostName());
+			host = Dns.GetHostEntry (Dns.GetHostName ());
 			
-			for(int i = 0; i < host.AddressList.GetLength(0); i++)
-			{
-			    if (host.AddressList[i].AddressFamily == AddressFamily.InterNetwork)
-			    {
-			        localIP = host.AddressList[i].ToString();
+			for (int i = 0; i < host.AddressList.GetLength(0); i++) {
+				if (host.AddressList [i].AddressFamily == AddressFamily.InterNetwork) {
+					localIP = host.AddressList [i].ToString ();
 					break;
-			    }
+				}
 			}
 			
 			return localIP;
 			
-        }
-
-        public void Listen(int port)
-        {
-            _port = port;
-        }
-
+		}
+		
+		/// <summary>
+		/// Begins listening at the specified port.
+		/// </summary>
+		/// <remarks>
+		/// This way we can use alternate ports based on needs.
+		/// </remarks>
+        public void Listen (int port)
+		{
+			_port = port;
+		}
+		
+		/// <summary>
+		/// Sends a message to a destination.
+		/// </summary>
+		/// <remarks>
+		/// It uses a Message class to describe all the information sent.
+		/// </remarks>
         public void Send(Message message) { 
             message.Source = MyIP();
 			
