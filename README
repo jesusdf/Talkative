@@ -1,0 +1,6 @@
+Talkative# - An internal network chat programmed in MonoDevelop and C#
+
+The main idea is to create a simple, cross-platform, secure chat.
+We mean "secure" by being hard to track a conversation by sniffing the packets and hard to decrypt it.
+This is achieved by using UDP sockets, rotating the listening port and adding encryption to every message.
+
