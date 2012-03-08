@@ -42,6 +42,7 @@ public partial class MainWindow
 		this.lblUserName = new global::Gtk.Label ();
 		this.lblUserName.Name = "lblUserName";
 		this.lblUserName.LabelProp = global::Mono.Unix.Catalog.GetString ("All");
+		this.lblUserName.Selectable = true;
 		this.tabUsers.SetTabLabel (this.GtkScrolledWindow, this.lblUserName);
 		this.lblUserName.ShowAll ();
 		this.vbox1.Add (this.tabUsers);
@@ -99,6 +100,7 @@ public partial class MainWindow
 		this.txtSend.HasDefault = true;
 		this.Hide ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
+		this.lblUserName.PopulatePopup += new global::Gtk.PopulatePopupHandler (this.OnLblUserNamePopulatePopup);
 		this.cmdSend.Clicked += new global::System.EventHandler (this.OnCmdSendClicked);
 	}
 }

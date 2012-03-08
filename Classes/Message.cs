@@ -31,6 +31,8 @@ namespace Talkative
 		
 		private string _source;
 		private string _destination;
+		private double _sentTimestamp;
+		private double _receiptTimestamp;
 		private MessageTypes _messageType;
 		private string _nick;
 		private string _information;
@@ -55,7 +57,7 @@ namespace Talkative
 			InitData(source, destination, messageType, nick, information, isBroadcast);
 		}
 		
-		private void InitData(string source, string destination, MessageTypes messageType, string nick, string information, bool isBroadcast)
+		private void InitData (string source, string destination, MessageTypes messageType, string nick, string information, bool isBroadcast)
 		{
 			_source = source;
 			_destination = destination;
@@ -63,6 +65,8 @@ namespace Talkative
 			_nick = nick;
 			_information = information;
 			_isBroadcast = isBroadcast;
+			_sentTimestamp = (new TimeSpan((DateTime.UtcNow - new DateTime(1970,1,1,0,0,0)))).TotalSeconds;
+			_receiptTimestamp = 0;
 		}
 		
 		public string Source

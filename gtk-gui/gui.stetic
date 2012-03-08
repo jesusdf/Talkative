@@ -6,7 +6,7 @@
   </configuration>
   <import>
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <widget-library name="../bin/Release/Talkative#.exe" internal="true" />
+    <widget-library name="../bin/Debug/Talkative#.exe" internal="true" />
   </import>
   <widget class="Gtk.Window" id="MainWindow" design-size="393 387">
     <property name="MemberName" />
@@ -41,6 +41,8 @@
               <widget class="Gtk.Label" id="lblUserName">
                 <property name="MemberName" />
                 <property name="LabelProp" translatable="yes">All</property>
+                <property name="Selectable">True</property>
+                <signal name="PopulatePopup" handler="OnLblUserNamePopulatePopup" />
               </widget>
               <packing>
                 <property name="type">tab</property>

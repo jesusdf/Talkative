@@ -44,4 +44,20 @@ public partial class MainWindow: Gtk.Window
 		OnUnreadMessages (this);
 	}
 	
+	protected void OnLblUserNamePopulatePopup (object o, Gtk.PopulatePopupArgs args)
+	{
+		ImageMenuItem menuItemClose = new ImageMenuItem ("Close");
+		Gtk.Image quitImg = new Gtk.Image (Stock.Close, IconSize.Menu);
+		menuItemClose.Image = quitImg;
+		menuItemClose.Activated += delegate {
+			MessageDialog md = new MessageDialog (null, DialogFlags.Modal, MessageType.Info, ButtonsType.Ok, "Just testing");
+			md.Run ();
+			md.Destroy ();
+		};
+		menuItemClose.Visible = true;
+		foreach (MenuItem item in args.Menu.Children) {
+			item.Destroy ();
+		}
+		args.Menu.Append (menuItemClose);
+	}
 }

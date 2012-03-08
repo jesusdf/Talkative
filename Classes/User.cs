@@ -17,6 +17,7 @@ namespace Talkative
 		private string _name = null;
         private string _IP = null;
         private bool _blocked = false;
+		private bool _notifyNewMessages = true;
 		
 		#endregion 
 		
@@ -55,17 +56,27 @@ namespace Talkative
             }
         }
 
-        public bool Blocked
+        public bool Blocked {
+			get {
+				return _blocked;
+			}
+			set {
+				_blocked = Blocked;
+			}
+		}
+		
+		public bool NotifyNewMessages
         {
             get
             {
-                return _blocked;
+                return _notifyNewMessages;
             }
             set
             {
-                _blocked = Blocked;
+                _notifyNewMessages = Blocked;
             }
         }
 
     }
 }
+
